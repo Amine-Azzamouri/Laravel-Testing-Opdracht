@@ -14,6 +14,16 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
+
+        $response->assertStatus(200);
+    }
+
+    public function test_the_homepage_contains_symfony(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertSee( value: 'Symfony');
+
         $response->assertStatus(200);
     }
 }
